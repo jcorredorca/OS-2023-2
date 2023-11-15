@@ -81,7 +81,7 @@ public class ForkJoinQuicksort extends RecursiveAction {
         int[] array = {7, 12, 19, 3, 18, 4, 2, 6, 15, 8};
         ForkJoinQuicksort task = new ForkJoinQuicksort(array);
         ForkJoinPool pool = new ForkJoinPool();
-    pool.invoke(task);
+        pool.invoke(task);
         System.out.println(Arrays.toString(array));
     }
 }
