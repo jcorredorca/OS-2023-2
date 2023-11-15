@@ -4,7 +4,7 @@ import java.util.Arrays; //toString() y copyOfRange() con arreglos
 import java.util.concurrent.ForkJoinPool; //ejecutor tareas fork-join
 import java.util.concurrent.RecursiveAction; //fork-join, tarea sin devolver resultado
 
-//extiende RecursiveAction para realizar mergesort usando fork-join
+//extiende RecursiveAction para realizar quicksort usando fork-join
 public class ForkJoinQuicksort extends RecursiveAction {
     private final int[] array;
     private final int left;
