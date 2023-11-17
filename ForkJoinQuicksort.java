@@ -78,27 +78,10 @@ public class ForkJoinQuicksort extends RecursiveAction {
      * @param args
      */
     public static void main(String[] args) {
-        try {
-            // leer la primera línea del txt
-            String line = Files.readAllLines(Paths.get("C:\\Users\\Usuario\\OneDrive\\Desktop\\Programas\\Java\\array.txt")).get(0);
-
-            // quitar los {} y separar con comas
-            String[] numberStrs = line.replaceAll("[{}]", "").split(",");
-
-            // string a cadena de ints
-            int[] array = Arrays.stream(numberStrs)
-                                .map(String::trim)
-                                .mapToInt(Integer::parseInt)
-                                .toArray();
-
-            ForkJoinQuicksort task = new ForkJoinQuicksort(array);
-
-            ForkJoinPool pool = new ForkJoinPool();
-            pool.invoke(task);
-
-            System.out.println(Arrays.toString(array));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        int[] array = {7, 12, 19, 3, 18, 4, 2, 6, 15, 8};
+        ForkJoinQuicksort task = new ForkJoinQuicksort(array);
+        ForkJoinPool pool = new ForkJoinPool();
+        pool.invoke(task);
+        System.out.println(Arrays.toString(array));
     }
 }
