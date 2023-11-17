@@ -78,25 +78,10 @@ public class ForkJoinMergesort extends RecursiveAction {
     }
 
     public static void main(String[] args) {
-        try {
-            String content = new String(Files.readAllBytes(Paths.get("C:\\\\Users\\\\Usuario\\\\OneDrive\\\\Desktop\\\\Programas\\\\Java\\\\array.txt")));
-            
-            // quitar {}
-            String[] numberStrs = content.replaceAll("[{}]", "").split(",");
-            
-            int[] array = Arrays.stream(numberStrs)
-                                .map(String::trim) // quitar espacios en blanco
-                                .mapToInt(Integer::parseInt) // strings --> enteros
-                                .toArray();
-
-            ForkJoinMergesort task = new ForkJoinMergesort(array);
-
-            ForkJoinPool pool = new ForkJoinPool();
-            pool.invoke(task);
-
-            System.out.println("Sorted array: " + Arrays.toString(array));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        int[] array = {12, 7, -5, 3, 15, 0, 9, 11, 6};
+        ForkJoinMergesort task = new ForkJoinMergesort(array);
+        ForkJoinPool pool = new ForkJoinPool();
+        pool.invoke(task);
+        System.out.println(Arrays.toString(array));
     }
 }
